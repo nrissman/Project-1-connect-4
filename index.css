@@ -39,23 +39,26 @@ h4{
 
 
 
-.board{
-    position: absolute;
-    top: 10rem;
-    left: 50%;
-    transform: translate(-50%);
+.board{  
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(7,auto);
+    margin-left: 190px;
     width: 650px;
     height: 600px;
     background: rgb(29, 98, 235);
-    border: 2px solid black;
-    padding: 1.5rem;
+    border: 5px solid rgb(226, 191, 19);
+    padding: 2rem;
 } 
 
 .slot{
     width: 90px;
     height: 90px;
     background: white;
+    border: 2px solid rgb(8, 8, 119);
     border-radius: 50px;
+
 }
 
 .button{
