@@ -1,0 +1,66 @@
+
+
+::after, ::before{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(8, 8, 119);
+    text-align: center;
+    
+    
+}
+
+h1{
+    color: rgb(226, 191, 19);
+    
+    
+}
+h2{
+    color: rgb(226, 191, 19);
+    font-size:20px;
+    line-height: 20px;
+    float: left;
+    padding: 30px 20px 5px 150px;
+    display: inline;
+}
+h3{
+    color: rgb(226, 191, 19);
+    font-size:20px;
+    line-height: 20px;
+    float: right;
+    padding: 30px 150px 5px 0px;
+    display: inline;
+}
+h4{
+    color: rgb(226, 191, 19);
+    font-size: 25px;
+}
+
+
+
+.board{
+    position: absolute;
+    top: 10rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 650px;
+    height: 600px;
+    background: rgb(29, 98, 235);
+    border: 2px solid black;
+    padding: 1.5rem;
+} 
+
+.slot{
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50px;
+}
+
+.button{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    right: 50%;
+}
