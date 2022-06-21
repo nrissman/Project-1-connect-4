@@ -1,29 +1,66 @@
 //grab the s divs or the div "board"  and turn them into an array or loop over them some how
-//maybe turn the s divs into a ul 
 
-//
+let currentPlayer = 1
 
-//grabbing the "board" div
-const slots = document.getElementsByClassName('slot')
-//let slots = board.getElementsByTagName('div') 
-//possibly create  ul and append the "s"divs to it and loop through the ul 
-for (let i = 0; i < slots.length; i++) {
-    slots[i].onclick = () => {
-        console.log("hello world")
+//grabbing the "board" divs
+const slot = document.getElementsByClassName("slot")
+//looping the "s" divs to making them clickable 
+for (let i = 0; i < slot.length; i++) {
+    slot[i].onclick = () => {
+        if (currentPlayer === 1) {
+            document.getElementById("currentPlayer").innerHTML = "Yellows Turn"
+            //slot.style.backgroundcolor = "red" //something to turn spot yellow or red
+            currentPlayer = 2
+            changebackground
+            //console.log(slot[i])
+        } else if (currentPlayer === 2){
+            document.getElementById("currentPlayer").innerHTML = "Reds Turn"
+            currentPlayer = 1
+        }
     }
 }
+function changebackground(){
+	document.getElementById('slot').style.backgroundColor = 'green' ;
+}
 
-
-    //s1.addEventListener('click', function (event){
-    // console.log("hello world")
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-})
-
-
-restart.addEventListener('click', function (event){
+restart.addEventListener("click", function (event){
     location.reload()
 })
+
+
+
+//get element by id'slot', if
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//let button = document.getElementById("flip");
+//let result = document.getElementById("result");
+//function fnClick(event) {
+//     let num = Math.random();
+
+//     if (num < 0.5) {
+//       result.innerHTML = "RED";
+//     } else {
+//       result.innerHTML = "YELLOW";
+//     }
+//   }
+
+
+
+//   button.addEventListener("click", fnClick);

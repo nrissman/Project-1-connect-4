@@ -16,4 +16,5 @@ must haves
     5)player remaining moves
 
 
-    
+grab the s divs or the div "board"  and turn them into an array or loop over them some how
+maybe turn the s divs into a ul 
