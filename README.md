@@ -23,11 +23,13 @@ OBJECTIVE:
 
 HOW TO PLAY:
 
-- First, decide who goes first and what color each player will have. 
+- First, have either player select the coin flip button to recieve a color, red will always start the game.
 
 - Players must alternate turns, and only one disc can be dropped in each turn. 
 
-- On your turn, drop one of your colored discs from the top into any of the seven slots.
+- On your turn, place one of your colored discs into any of the seven slots.
+
+-You can only ony play on a slot directly above a previuolsy filled slot except for when playing the bottom row
 
 - The game ends when there is a 4-in-a-row or a stalemate.
 
