@@ -24,12 +24,11 @@
 const board = document.querySelector('.board')
 //this will alow us tho alternate whos turn it is
 let playerColor = document.querySelector('.color')
-//grab reset button
-const reset = document.querySelector('.reset')
-const playAgain = document.querySelector('#playAgain')
+//grabbing the winner tag
+const result = document.querySelector('#result')
 let turns = 0
 let currentPlayer = 1
-let winningArray = [ 
+let winningArrays = [ 
     [0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10], 
     [34, 33, 32, 31], [14, 15, 16, 17], [27, 26, 25, 24], 
     [21, 22, 23, 24], [20, 19, 18, 17], [28, 29, 30, 31], 
@@ -56,22 +55,25 @@ let winningArray = [
     ];
 
     document.addEventListener('DOMContentLoaded', loadGame)
+
     function loadGame () {
         //making the board
         makeBoard()
         //calling the inner html to signal whos turn it is 
         playerColor.innerHTML=currentPlayer
+        //renaming divs 'spot'
         let spot= document.querySelectorAll('.board div')
+        //creating an array from newly formed 'spot' variable
         Array.from(spot).forEach(spot=>{
+            //applying a click function to all 'spot's
             spot.addEventListener('click', clickSpot)
         })
 
     }
 
-    //making the board
-const makeBoard = () => {
-    //create 49 spots
-    //loop 49 times
+        //making the board
+    const makeBoard = () => {
+        //create 42 spots
     for (let i = 0; i < 42; i++){
         //create a div for every spot 
         let div = document.createElement('div')
@@ -79,7 +81,11 @@ const makeBoard = () => {
         div.setAttribute('data-id', i)
         //add the class of spot to newly created div
         div.classList.add('spot')
-        //setting the bottom 7 spots class to 'taken'
+        //setting all but the bottom 7 spots class to 'unvailable'
+        if (i>=35){
+            div.className.add='unavailable'
+            console.log(div)
+        }
         //add spots to the board
         board.appendChild(div)
         
@@ -92,48 +98,36 @@ const makeBoard = () => {
         //needs to grab all the divs and make them selectable
         let spot = document.querySelectorAll('.board div') 
         let select = parseInt(this.dataset.id)  
-                //if the spot below contains taken and the current spot doesnt contain taken do the following
-        //if( spot[select+7].classList.contains("taken") && !spot[select].classList.contains("taken")){ 
-            if(currentPlayer===1){  
-                document.getElementById("player").innerHTML = "Yellows Turn"
-                //needs to add color with css player color
-                playerColor.innerHTML=currentPlayer
-                console.log(this)
-                //needs to change class to 'taken' 
-                this.className="player-red"
-                // this.className="taken" 
-                // needs to run checkWin function (still need to write)
-                //checkWon() 
+        //all spots start unavailable except bottom 7, then if a spot is clicked the spot 7 numbers back from it (spot[i]-7) should be available
+        if(currentPlayer===1){  
+                document.getElementById('player').innerHTML = 'Yellows Turn'
+                // console.log(this) 
+                //adds color with css player color
+                this.className='player-red'
+                // this.className='available' 
                 currentPlayer=2
-
         }    else if(currentPlayer === 2){  
-                document.getElementById("player").innerHTML = "reds Turn"
-                //needs to add color with css player color
-                playerColor.innerHTML=currentPlayer
-                console.log(this)
+                document.getElementById("player").innerHTML = 'reds Turn'
+                //console.log(this)
+                this.className="player-yellow" 
+                currentPlayer=1 
+            }           
 
-                //needs to change class to 'taken' 
-                this.className="player-yellow"
-                // this.className="taken" 
-                // needs to run checkWin function (still need to write)
-                //checkWon() 
-                currentPlayer=1
-                }           
-
-        }
+    }
     
     
-   // }
 
 
+        // function checkWin(){
+
+        // }
     
 
 
-function checkWin(){
-
-}
 
 
-reset.addEventListener("click", function (event){
+
+
+restart.addEventListener('click', function (event){
     location.reload()
-})
+ })

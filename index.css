@@ -60,6 +60,8 @@ ul{
 }
 
 .player-red{
+    width: 90px;
+    height: 90px;
     background-color: red;
     border: 2px solid rgb(8, 8, 119);
     border-radius: 50px;
@@ -67,10 +69,9 @@ ul{
 
 
 .player-yellow{
+    width: 90px;
+    height: 90px;
     background-color:rgb(226, 191, 19);
     border: 2px solid rgb(8, 8, 119);
     border-radius: 50px;
-}
-.taken{
-    display: none;
 }
