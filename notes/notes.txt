@@ -1,0 +1,57 @@
+must haves 
+    1) player turn indicator 
+    2)make board (use tr and td )
+    3)random player start indicator (coinflip) maybe math.random.math.floor(#1-2)
+    4)clickable tiles 
+    5)rules and objective visible on page load 
+    6)winner display 
+    7)tie display 
+    8)highlight winning combination - code should be written in the winning statement function
+
+    stretch goals
+    1) token drop animation
+   - 2)reset buttom (completed)
+    3) winning game animation
+    4) different themes and styling 
+    5)player remaining moves
+
+
+    //grab the s divs or the div "board"  and turn them into an array or loop over them some how
+// -game loads 
+//// -rules and objectives display on screen out of the way of gameplay (maybe you click a button that links to them)
+// -player clicks coin flip to receive color (red always goes first)
+// -can only select slots that are directly above taken slots (i.e you can’t have floating pieces)
+// -player one selects slot 
+// -token appears and slot becomes “taken” (can’t play on taken slots)
+// -Player turn indicator changes 
+// -player two selects slot
+// -token appears and slot becomes taken
+// -if four of the same players pieces are detected in a row that player wins 
+// -the four winning pieces are highlighted  and a win message is displayed
+// -if all 42 pieces are played with no winner the game ends in a tie and a tie message is displayed
+
+//make 42 slots in that container and grab them//
+//make them clickable 
+//write functions to apply to each slot
+//apply color to the clicked slots 
+//make them unclickable once clicked 
+//player one 
+//player two
+
+
+grab the s divs or the div "board"  and turn them into an array or loop over them some how
+maybe turn the s divs into a ul 
+
+attempts to change spot color
+    //slot.style.backgroundcolor = "red"
+    //function changebackground(){
+	//document.getElementById('slot').style.backgroundColor = 'green' ;
+
+
+    attempts to change slot color and nake slot un playable
+            //slot[i].classList.add('taken')
+            //adding color to the slots, still need to make them un-clickable
+            //slot[i].classList.add('player-red')
+//////////////////////////////////////////////////////////////////////
+            //slot[i].classList.add('taken')
+            //slot[i].classList.add('player-yellow')

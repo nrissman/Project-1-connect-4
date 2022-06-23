@@ -1,20 +1,27 @@
 
+
+
+
+
+::after, ::before{
+    box-sizing: border-box;
+}
+
 body{
     background-color: rgb(8, 8, 119);
+    text-align: center;
+    
     
 }
 
 h1{
     color: rgb(226, 191, 19);
-    text-align:center ;
-    
     
     
 }
 h2{
     color: rgb(226, 191, 19);
     font-size: 25px;
-    text-align: center;
 }
 ul{
     color: rgb(226, 191, 19);
@@ -61,16 +68,9 @@ ul{
 
 .player-red{
     background-color: red;
-    border: 2px solid rgb(8, 8, 119);
-    border-radius: 50px;
 }
 
 
 .player-yellow{
     background-color:rgb(226, 191, 19);
-    border: 2px solid rgb(8, 8, 119);
-    border-radius: 50px;
-}
-.taken{
-    display: none;
 }

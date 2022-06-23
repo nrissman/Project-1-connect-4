@@ -1,0 +1,89 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel='stylesheet' href='index.css'>
+</head>
+<body>
+
+    <h1>Welcome to Connect Four</h1>
+    <h2 id= currentPlayer>Red Starts</h2>
+    <h3 id= winner></h3>
+
+    <div class="board">
+    <div id = 's1' class = 'slot'></div>
+    <div id = 's2' class = 'slot'></div>
+    <div id = 's3' class = 'slot'></div>
+    <div id = 's4' class = 'slot'></div>
+    <div id = 's5' class = 'slot'></div>
+    <div id = 's6' class = 'slot'></div>
+    <div id = 's7' class = 'slot'></div>
+    <div id = 's8' class = 'slot'></div>
+    <div id = 's9' class = 'slot'></div>
+    <div id = 's10' class = 'slot'></div>
+    <div id = 's11' class = 'slot'></div>
+    <div id = 's12' class = 'slot'></div>
+    <div id = 's13' class = 'slot'></div>
+    <div id = 's14' class = 'slot'></div> 
+    <div id = 's15' class = 'slot'></div>
+    <div id = 's16' class = 'slot'></div>
+    <div id = 's17' class = 'slot'></div>
+    <div id = 's18' class = 'slot'></div>
+    <div id = 's19' class = 'slot'></div>
+    <div id = 's20' class = 'slot'></div> 
+    <div id = 's21' class = 'slot'></div>
+    <div id = 's22' class = 'slot'></div>
+    <div id = 's23' class = 'slot'></div>
+    <div id = 's24' class = 'slot'></div>
+    <div id = 's25' class = 'slot'></div>
+    <div id = 's26' class = 'slot'></div> 
+    <div id = 's27' class = 'slot'></div>
+    <div id = 's28' class = 'slot'></div>
+    <div id = 's29' class = 'slot'></div>
+    <div id = 's30' class = 'slot'></div>
+    <div id = 's31' class = 'slot'></div>
+    <div id = 's32' class = 'slot'></div> 
+    <div id = 's33' class = 'slot'></div>
+    <div id = 's34' class = 'slot'></div>
+    <div id = 's35' class = 'slot'></div>
+    <div id = 's36' class = 'slot'></div>
+    <div id = 's37' class = 'slot'></div>
+    <div id = 's38' class = 'slot'></div> 
+    <div id = 's39' class = 'slot'></div>
+    <div id = 's40' class = 'slot'></div>
+    <div id = 's41' class = 'slot'></div>
+    <div id = 's42' class = 'slot'></div>
+    <div id = 'base'class='taken' class='slot' ></div>
+    <div id = 'base'class='taken' class='slot' ></div>
+    <div id = 'base'class='taken' class='slot' ></div>
+    <div id = 'base'class='taken' class='slot' ></div>
+    <div id = 'base'class='taken' class='slot' ></div>
+    <div id = 'base'class='taken' class='slot' ></div>
+    <div id = 'base'class='taken' class='slot' ></div>
+
+    </div>
+    <div class='button'>
+        <button id='restart'>Restart</button>
+        </div>
+<ul class = 'objective'>OBJECTIVE
+    <li>To be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally)</li>
+</ul>
+<ul> RULES
+    <li>First, have either player select the coin flip button to recieve a color, red will always start the game.</li>
+    <li>Players must alternate turns, and only one disc can be dropped in each turn.</li>
+    <li>On your turn, place one of your colored discs into any of the seven slots.</li>
+    <li>You can only ony play on a slot directly above a previuolsy filled slot except for when playing the bottom row</li>
+    <li>The game ends when there is a 4-in-a-row or a stalemate.</li>
+    <li>The starter of the previous game goes second on the next game.</li>
+</ul>
+        
+    <!-- <button id="flip" type="button">Flip the coin</button>
+    <div id="result"></div> -->
+            
+        <script src="index.js"></script>
+</body>
+</html>
