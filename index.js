@@ -52,68 +52,80 @@ let winningArrays = [
     [36, 37, 38, 39], [40, 39, 38, 37], [7, 14, 21, 28], 
     [8, 15, 22, 29], [9, 16, 23, 30], [10, 17, 24, 31], 
     [11, 18, 25, 32], [12, 19, 26, 33], [13, 20, 27, 34] 
-    ];
+];
 
-    document.addEventListener('DOMContentLoaded', loadGame)
+document.addEventListener('DOMContentLoaded', loadGame)
 
-    function loadGame () {
-        //making the board
-        makeBoard()
-        //calling the inner html to signal whos turn it is 
-        playerColor.innerHTML=currentPlayer
-        //renaming divs 'spot'
-        let spot= document.querySelectorAll('.board div')
-        //creating an array from newly formed 'spot' variable
-        Array.from(spot).forEach(spot=>{
-            //applying a click function to all 'spot's
-            spot.addEventListener('click', clickSpot)
-        })
+function loadGame () {
+    //making the board
+    makeBoard()
+    //calling the inner html to signal whos turn it is 
+    playerColor.innerHTML=currentPlayer
+    //renaming divs 'spot'
+    let spot= document.querySelectorAll('.board div')
+    //creating an array from newly formed 'spot' variable
+    Array.from(spot).forEach(spot=>{
+        //applying a click function to all 'spot's
+        spot.addEventListener('click', clickSpot)
+    })
 
-    }
+}
 
         //making the board
     const makeBoard = () => {
         //create 42 spots
-    for (let i = 0; i < 42; i++){
-        //create a div for every spot 
-        let div = document.createElement('div')
-        // giving the div a data set for later use
-        div.setAttribute('data-id', i)
-        //add the class of spot to newly created div
-        div.classList.add('spot')
-        //setting all but the bottom 7 spots class to 'unvailable'
-        if (i>=35){
-            div.className.add='unavailable'
-            console.log(div)
+        for (let i = 0; i < 42; i++){
+            //create a div for every spot 
+            let div = document.createElement('div')
+            // giving the div a data set for later use
+            div.setAttribute('data-id', i)
+            div.setAttribute('data-avail', false)
+            //add the class of spot to newly created div
+            div.classList.add('spot')
+            //setting the bottom 7 spots class to 'available'
+            if (i>=35){
+                div.setAttribute('data-avail', true)
+                
+
+            }
+            console.log("the div created", div)
+            //add spots to the board
+            board.appendChild(div)
         }
-        //add spots to the board
-        board.appendChild(div)
-        
-    }
-}       //console.log(board)
-
+    }       
     //giving the spot a click function
-    //checkWin should run on these clicks
-    function clickSpot(){
-        //needs to grab all the divs and make them selectable
-        let spot = document.querySelectorAll('.board div') 
-        let select = parseInt(this.dataset.id)  
-        //all spots start unavailable except bottom 7, then if a spot is clicked the spot 7 numbers back from it (spot[i]-7) should be available
+function clickSpot(e){
+    console.log('this is the spot: dataset', e.target.dataset)
+    const available = e.target.dataset.avail === 'true' ? true : false 
+    console.log('available?', available)
+    //needs to grab all the divs and make them selectable
+    let spot = document.querySelectorAll('.board div') 
+    let select = parseInt(this.dataset.id) 
+    if (available) {
+        console.log('this spot is available')
         if(currentPlayer===1){  
-                document.getElementById('player').innerHTML = 'Yellows Turn'
-                // console.log(this) 
-                //adds color with css player color
-                this.className='player-red'
-                // this.className='available' 
-                currentPlayer=2
+            //changes player turn 
+            document.getElementById('player').innerHTML = 'Yellows Turn'
+            //adds color with css player color
+            this.className='player-red'
+            //switches player turn
+            currentPlayer=2
+            //makes spot unclickable
+            e.target.dataset.avail = 'false'   
         }    else if(currentPlayer === 2){  
-                document.getElementById("player").innerHTML = 'reds Turn'
-                //console.log(this)
-                this.className="player-yellow" 
-                currentPlayer=1 
-            }           
+            document.getElementById("player").innerHTML = 'reds Turn'
+            this.className="player-yellow" 
+            currentPlayer=1 
+            e.target.dataset.avail = 'false'    
+        }       
+    }else{
+        alert('spot not available try somewhere else')
+        //console.log('spot not available try somewhere else')
+    }        
+        
+}
 
-    }
+    
     
     
 
@@ -130,4 +142,4 @@ let winningArrays = [
 
 restart.addEventListener('click', function (event){
     location.reload()
- })
+})
