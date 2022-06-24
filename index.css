@@ -24,15 +24,18 @@ h3{
 }
 ul{
     color: rgb(226, 191, 19);
+    font-weight: bold;
+    font-size: large;
     width: 30rem;
     position: absolute;
-    top: 68%;
+    top: 18%;
 }
 .objective{
     color: rgb(226, 191, 19);
+    font-weight: bold;
     width: 30rem;
     position: absolute;
-    top: 60%;
+    top: 10%;
 }
 
 .board{  
@@ -64,8 +67,30 @@ ul{
     left: 50%;
     transform: translate(0, -50%);
 }
+#coinFlip{
+    position: absolute;
+    font-size: 20px;
+    color: rgb(29, 98, 235);
+    background-color:silver;
+    width: 120px;
+    height: 120px;
+    border-radius: 90px;
+    right: 10%;
+    top: 18%;
+    border:3px solid silver;
+}
+#coinResult{
+    position: absolute;
+    color:rgb(226, 191, 19);
+    font-size: larger;
+    font-weight: bold;
+    width: 170px;
+    height: 170px;
+    right: 7%;
+    top: 31%;
+}
 
-.player-red{
+.red-player{
     width: 90px;
     height: 90px;
     background-color: red;
@@ -74,10 +99,18 @@ ul{
 }
 
 
-.player-yellow{
+.blue-player{
     width: 90px;
     height: 90px;
-    background-color:rgb(226, 191, 19);
-    border: 2px solid rgb(8, 8, 119);
+    background-color:rgb(8, 62, 223);
+    border: 2px solid rgb(9, 9, 115);
     border-radius: 50px;
+}
+
+
+#restart:hover{
+    background-color: darkgrey;
+}
+#coinFlip:hover{
+    background-color: darkgrey;
 }

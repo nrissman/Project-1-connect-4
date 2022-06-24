@@ -27,6 +27,8 @@ const board = document.querySelector('.board')
 let playerColor = document.querySelector('.color')
 //grabbing the winner tag
 const result = document.querySelector('#result')
+let coinFlip = document.getElementById('coinFlip')
+let coinResult = document.getElementById('coinResult')
 let turns = 1
 let currentPlayer = 1
 let winningArrays = [ 
@@ -107,9 +109,9 @@ function clickSpot(e){
         //console.log('this spot is available')
         if(currentPlayer===1){  
             //changes player turn 
-            document.getElementById('player').innerHTML = 'Yellows Turn'
+            document.getElementById('player').innerHTML = 'Blues Turn'
             //adds color with css player color
-            this.className='player-red'
+            this.className='red-player'
             //switches player turn
             currentPlayer=2
             //makes spot unclickable
@@ -118,7 +120,7 @@ function clickSpot(e){
 
         } else if(currentPlayer === 2){  
             document.getElementById("player").innerHTML = 'reds Turn'
-            this.className="player-yellow" 
+            this.className="blue-player" 
             currentPlayer=1 
             e.target.dataset.avail = 'false' 
         } if (spotAboveId>=0){
@@ -146,10 +148,10 @@ function checkWin() {
         
         //check those squares to see if they all have the class of player-Red
         if (
-            spots1.classList.contains('player-red') &&
-            spots2.classList.contains('player-red') &&
-            spots3.classList.contains('player-red') &&
-            spots4.classList.contains('player-red')
+            spots1.classList.contains('red-player') &&
+            spots2.classList.contains('red-player') &&
+            spots3.classList.contains('red-player') &&
+            spots4.classList.contains('red-player')
             )
         {
             document.getElementById('player').innerHTML = 'game over'
@@ -159,14 +161,14 @@ function checkWin() {
         }
         //check those squares to see if they all have the class of player-Yellow
         if (
-            spots1.classList.contains('player-yellow') &&
-            spots2.classList.contains('player-yellow') &&
-            spots3.classList.contains('player-yellow') &&
-            spots4.classList.contains('player-yellow')
+            spots1.classList.contains('blue-player') &&
+            spots2.classList.contains('blue-player') &&
+            spots3.classList.contains('blue-player') &&
+            spots4.classList.contains('blue-player')
             )
         {
             document.getElementById('player').innerHTML = 'game over'
-            result.innerHTML = 'Yellow Player Wins! Click reset to play again!'
+            result.innerHTML = 'Blue Player Wins! Click reset to play again!'
         }
         if (turns === 42) {
             result.innerHTML = "It's a Tie. Click Reset Game to play again!"
@@ -181,6 +183,17 @@ function endGame(){
         
     }
 }
+
+function flip(event) {
+    let num = Math.random();
+    if (num < 0.5) {
+        coinResult.innerHTML = 'You are Red';
+    } else {
+        coinResult.innerHTML = 'You are Blue';
+    }
+}
+
+coinFlip.addEventListener("click", flip);
 
 restart.addEventListener('click', function (event){
     location.reload()
