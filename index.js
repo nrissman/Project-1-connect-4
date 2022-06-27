@@ -175,6 +175,7 @@ function checkWin() {
         {
             document.getElementById('winMsg').innerHTML = 'GAME OVER, BLUE PLAYER WINS! CLICK RESET!'
             document.getElementById("player").innerHTML = ''
+            endGame()
             // result.innerHTML = 'Blue Player Wins! Click reset to play again!'
         }
         if (turns === 42) {
