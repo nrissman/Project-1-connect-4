@@ -29,6 +29,7 @@ let playerColor = document.querySelector('.color')
 const result = document.querySelector('#result')
 let coinFlip = document.getElementById('coinFlip')
 let coinResult = document.getElementById('coinResult')
+let cantPlay = document.getElementById('cantPlay')
 let turns = 1
 let currentPlayer = 1
 let winningArrays = [ 
@@ -65,11 +66,11 @@ function loadGame () {
     //calling the inner html to signal whos turn it is 
     playerColor.innerHTML=currentPlayer
     //renaming divs 'spot'
-    let spot= document.querySelectorAll('.board div')
+    let spots= document.querySelectorAll('.board div')
     //creating an array from newly formed 'spot' variable
-    Array.from(spot).forEach(spot=>{
+    Array.from(spots).forEach(spots=>{
         //applying a click function to all 'spot's
-        spot.addEventListener('click', clickSpot)
+        spots.addEventListener('click', clickSpot)
     })
 
 }
@@ -84,7 +85,7 @@ const makeBoard = () => {
         div.setAttribute('data-id', i)
         div.setAttribute('data-avail', false)
         //add the class of spot to newly created div
-        div.classList.add('spot')
+        div.classList.add('spots')
         //setting the bottom 7 spots class to 'available'
         if (i>=35){
             div.setAttribute('data-avail', true)            
@@ -103,7 +104,7 @@ function clickSpot(e){
     //console.log(e.target.dataset.avail)
    // console.log('available?', available)
     //needs to grab all the divs and make them selectable
-    let spot = document.querySelectorAll('.board div') 
+    let spots = document.querySelectorAll('.board div') 
     let select = parseInt(this.dataset.id) 
     if (available) {
         //console.log('this spot is available')
@@ -117,19 +118,20 @@ function clickSpot(e){
             //makes spot unclickable
             e.target.dataset.avail = 'false' 
             console.log(e.target.dataset)
-
+            document.getElementById('cantPlay').innerHTML =''
         } else if(currentPlayer === 2){  
-            document.getElementById("player").innerHTML = 'reds Turn'
+            document.getElementById("player").innerHTML = 'Reds Turn'
             this.className="blue-player" 
             currentPlayer=1 
             e.target.dataset.avail = 'false' 
+            document.getElementById('cantPlay').innerHTML =''
         } if (spotAboveId>=0){
             const spotAbove = document.querySelector(`[data-id="${spotAboveId}"]`)            
             spotAbove.dataset.avail = 'true'
             
-        }
+        } 
         
-    } else alert('spot not available try somewhere else')
+    } else document.getElementById('cantPlay').innerHTML = 'Cant go here, try somewhere else'
     checkWin()    
     turns = turns +1
     //console.log('spot not available try somewhere else')
@@ -138,37 +140,42 @@ function clickSpot(e){
 }
 
 
+
+
 function checkWin() {
-    let spot = document.querySelectorAll('.board div')
+    let spots = document.querySelectorAll('.board div')
     for (let y = 0; y < winningArrays.length; y++) {
-        const spots1 = spot[winningArrays[y][0]]
-        const spots2 = spot[winningArrays[y][1]]
-        const spots3 = spot[winningArrays[y][2]]
-        const spots4 = spot[winningArrays[y][3]]
+        const spot1 = spots[winningArrays[y][0]]
+        const spot2 = spots[winningArrays[y][1]]
+        const spot3 = spots[winningArrays[y][2]]
+        const spot4 = spots[winningArrays[y][3]]
         
         //check those squares to see if they all have the class of player-Red
         if (
-            spots1.classList.contains('red-player') &&
-            spots2.classList.contains('red-player') &&
-            spots3.classList.contains('red-player') &&
-            spots4.classList.contains('red-player')
+            spot1.classList.contains('red-player') &&
+            spot2.classList.contains('red-player') &&
+            spot3.classList.contains('red-player') &&
+            spot4.classList.contains('red-player')
             )
         {
-            document.getElementById('player').innerHTML = 'game over'
-            result.innerHTML = 'Red Player Wins! Click reset to play again!'
+            document.getElementById('winMsg').innerHTML = 'GAME OVER, RED PLAYER WINS! CLICK RESET!'
+            document.getElementById("player").innerHTML = ''
+            winningArrays=
+            //result.innerHTML = 'Red Player Wins! Click reset to play again!'
             endGame()
             
         }
         //check those squares to see if they all have the class of player-Yellow
         if (
-            spots1.classList.contains('blue-player') &&
-            spots2.classList.contains('blue-player') &&
-            spots3.classList.contains('blue-player') &&
-            spots4.classList.contains('blue-player')
+            spot1.classList.contains('blue-player') &&
+            spot2.classList.contains('blue-player') &&
+            spot3.classList.contains('blue-player') &&
+            spot4.classList.contains('blue-player')
             )
         {
-            document.getElementById('player').innerHTML = 'game over'
-            result.innerHTML = 'Blue Player Wins! Click reset to play again!'
+            document.getElementById('winMsg').innerHTML = 'GAME OVER, BLUE PLAYER WINS! CLICK RESET!'
+            document.getElementById("player").innerHTML = ''
+            // result.innerHTML = 'Blue Player Wins! Click reset to play again!'
         }
         if (turns === 42) {
             result.innerHTML = "It's a Tie. Click Reset Game to play again!"
@@ -177,9 +184,9 @@ function checkWin() {
 }
     
 function endGame(){
-    let spot = document.querySelectorAll('.board div')
-    for (let i = 0; i < spot.length; i++) {
-        spot[i].removeEventListener('click', clickSpot)
+    let spots = document.querySelectorAll('.board div')
+    for (let i = 0; i < spots.length; i++) {
+        spots[i].removeEventListener('click', clickSpot)
         
     }
 }
