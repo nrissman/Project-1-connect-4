@@ -62,7 +62,7 @@ p{
     font-family:cursive;
     font-weight: bold;
     font-size: 30px;
-    position: absolute;
+    position: relative;
     top: 8%;
     left: 76%;
 }
@@ -162,8 +162,8 @@ ul{
     background-repeat: no-repeat;
     background-size: 150px 150px;
     background-position: 50%;
-    width: 90px;
-    height: 90px;
+    width: 100%;
+    height: auto;
     border-radius: 50px;
 }
 .winner{
