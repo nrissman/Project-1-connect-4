@@ -160,9 +160,11 @@ function checkWin() {
         {
             document.getElementById('winMsg').innerHTML = 'GAME OVER, RED PLAYER WINS! CLICK RESET!'
             document.getElementById("player").innerHTML = ''
-            winningArrays=
-            //result.innerHTML = 'Red Player Wins! Click reset to play again!'
             endGame()
+            spot1.className='goldToken'
+            spot2.className='goldToken'
+            spot3.className='goldToken'
+            spot4.className='goldToken'
             
         }
         //check those squares to see if they all have the class of player-Yellow
@@ -176,6 +178,10 @@ function checkWin() {
             document.getElementById('winMsg').innerHTML = 'GAME OVER, BLUE PLAYER WINS! CLICK RESET!'
             document.getElementById("player").innerHTML = ''
             endGame()
+            spot1.className='goldToken'
+            spot2.className='goldToken'
+            spot3.className='goldToken'
+            spot4.className='goldToken'
             // result.innerHTML = 'Blue Player Wins! Click reset to play again!'
         }
         if (turns === 42) {
@@ -206,3 +212,13 @@ coinFlip.addEventListener("click", flip);
 restart.addEventListener('click', function (event){
     location.reload()
 })
+
+
+//if winning array is true, change the corrisponding div ids(numbers 0-41) to gold tokens
+//if this.className='blue-player'
+
+function goldTokens (){
+    if(winningArrays === true){
+        this.classList=spot1
+    }
+}
